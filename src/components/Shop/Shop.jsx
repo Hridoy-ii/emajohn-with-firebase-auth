@@ -8,7 +8,13 @@ const Shop = () => {
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, []);
+    const [cart, setCart] = useState([]);
+
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
+        setCart(newCart);
+    }
     return (
         <div className='shop-container'>
             <div className="products-container">
@@ -16,11 +22,13 @@ const Shop = () => {
                     products.map(product => <Product
                         key={product.id}
                         product={product}
+                        handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
             </div>
             <div className="cart-container">
-                <h4>Dam dekho agee</h4>
+                <h4>Order Summary</h4>
+                <p>Selected Item: {cart.length}</p>
             </div>
         </div>
     );
