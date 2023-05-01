@@ -1,5 +1,7 @@
 .cart{
     margin: 23px;
+    position: sticky;
+    top: 0;
 }
 .cart h5, h6{
     margin: 25px 0 50px 0;
