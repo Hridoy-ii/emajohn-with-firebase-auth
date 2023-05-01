@@ -13,7 +13,7 @@ const Cart = ({ cart }) => {
     // const cart = props.cart; opt-1 to get the cart
     // const {cart} = props; opt-2 to get the cart
     // here the cart destructured in the cart props param
-    // console.log(cart);
+    console.log(cart);
 
     let totalPrice = 0;
     let shippngTotal = 0;
