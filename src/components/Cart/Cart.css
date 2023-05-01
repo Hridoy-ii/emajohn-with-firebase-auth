@@ -1,0 +1,27 @@
+.cart{
+    margin: 23px;
+}
+.cart h5, h6{
+    margin: 25px 0 50px 0;
+}
+.cart p{
+    font-size: 0.9em;
+    margin-top: 25px;
+}
+.cart h5{
+    font-size: 1.5em;
+    text-align: center;
+}
+.cart h6{
+    font-size: 1em;
+}
+.cart button{
+    width: 100%;
+    margin-bottom: 24px;
+}
+.clr-cart-btn{
+    background: #FF3030;
+}
+.rvw-ordr-btn{
+    background: #FF9900;
+}
