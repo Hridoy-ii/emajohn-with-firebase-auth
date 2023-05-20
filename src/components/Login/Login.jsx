@@ -1,14 +1,22 @@
 import React, { useContext, useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProviders';
 
 const Login = () => {
     const [errors, setError] = useState(null);
 
+    const [show, setShow] = useState(false);
+
     const { signInUser } = useContext(AuthContext);
 
-    const handleLogin = event =>{
+    // to access the private route logging in redirect the route
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogin = event => {
         event.preventDefault();
 
         const form = event.target;
@@ -20,15 +28,16 @@ const Login = () => {
         setError('');
 
         signInUser(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            form.reset();
-        })
-        .catch(error =>{
-            console.log(error.message);
-            setError(error.message);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                form.reset();
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error.message);
+                setError(error.message);
+            })
     }
 
 
@@ -53,11 +62,15 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                <input type={show ? "text" : "password" } name='password' placeholder="password" className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
-
+                                <p onClick={() => setShow(!show)}> <small>
+                                    {
+                                        show ? <span>Hide Password</span> : <span>Show Password</span>
+                                    }
+                                </small> </p>
                             </div>
                             <div>
                                 <p className='text-pink-500'><small>{errors}</small></p>

@@ -4,7 +4,7 @@ import './OrderReview.css';
 const OrderReview = () => {
     return (
         <div>
-            <h2>Put your review here</h2>
+            <h2>dfkjhajd</h2>
         </div>
     );
 };

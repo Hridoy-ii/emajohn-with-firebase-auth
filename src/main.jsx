@@ -15,6 +15,7 @@ import OrderReview from './components/OrderReview/OrderReview.jsx';
 import cartProductsLoader from './components/Loaders/cartProductsLoader.js';
 import SignUp from './components/SignUp/Signup.jsx';
 import AuthProviders from './components/providers/AuthProviders.jsx';
+import PrivateRoute from './components/SignUp/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -43,8 +44,8 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
-        path: "/Order-Review",
-        element: <OrderReview></OrderReview>
+        path: "/OrderReview",
+        element: <PrivateRoute> <OrderReview></OrderReview> </PrivateRoute> 
       }
     ]
   },

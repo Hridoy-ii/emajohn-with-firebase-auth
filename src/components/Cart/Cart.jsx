@@ -3,6 +3,7 @@ import './Cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const deleteIcon = <FontAwesomeIcon icon={faTrashCan} />
 const arrowIcon = <FontAwesomeIcon icon={faArrowRight} />
@@ -37,7 +38,8 @@ const Cart = ({ cart, handleClearCart }) => {
             <p>Tax: ${tax.toFixed(2)}</p>
             <h6>Grand Total: ${grandTotal.toFixed(2)}</h6>
             <button onClick={handleClearCart} className='clr-cart-btn'>Clear Cart {deleteIcon}</button>
-            <button className='rvw-ordr-btn'>Review Order {arrowIcon}</button>
+            <Link to='/OrderReview'><button className='rvw-ordr-btn'>Review Order {arrowIcon}</button></Link>
+            
         </div>
     );
 };

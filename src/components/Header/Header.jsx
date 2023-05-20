@@ -21,7 +21,7 @@ const Header = () => {
             <div>
                 <Link to="/">Shop</Link>
                 <Link to="/Orders">Orders</Link>
-                <Link to="/Order-Review">Order Review</Link>
+                <Link to="/OrderReview">Order Review</Link>
                 <Link to="/Manage-Inventory">Manage Inventory</Link>
 
 
